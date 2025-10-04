@@ -16,10 +16,10 @@ You will also see any lint errors in the console.
 
 ## Preview Images
 
-![Canvas Editor Home Page](images\Screenshot 2025-10-05 044150.png)
+![Canvas Editor Home Page](images/Screenshot%202025-10-05%20044150.png)
 *Home page with beautiful gradient background and feature showcase*
 
-![Canvas Editor Interface](images\Screenshot 2025-10-05 044142.png)
+![Canvas Editor Interface](images/Screenshot%202025-10-05%20044142.png)
 *Main canvas editor with toolbar, drawing area, and property panel*
 
 ### `npm test`

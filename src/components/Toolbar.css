@@ -1,0 +1,127 @@
+.toolbar {
+  background: #f8fafc;
+  border-right: 1px solid #e2e8f0;
+  padding: 1rem;
+  width: 200px;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.toolbar-section h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tool-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tool-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #475569;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.tool-button:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+}
+
+.tool-button:active {
+  transform: translateY(0);
+}
+
+.tool-button.active {
+  background: #3b82f6;
+  color: white;
+  border-color: #2563eb;
+}
+
+.tool-button.active:hover {
+  background: #2563eb;
+}
+
+.tool-button.delete-button {
+  color: #dc2626;
+  border-color: #fecaca;
+  background: #fef2f2;
+}
+
+.tool-button.delete-button:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+}
+
+.tool-button.save-button {
+  background: #10b981;
+  color: white;
+  border-color: #059669;
+  font-weight: 600;
+}
+
+.tool-button.save-button:hover {
+  background: #059669;
+}
+
+.tool-button.save-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.tool-button.saving {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .toolbar-section {
+    min-width: 150px;
+  }
+
+  .tool-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .tool-button {
+    font-size: 0.75rem;
+    padding: 0.5rem;
+    min-width: 70px;
+  }
+}
