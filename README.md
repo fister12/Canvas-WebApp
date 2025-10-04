@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/fister12/Canvas-WebApp.git).
 
 ## Available Scripts
 
@@ -13,6 +13,14 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+
+## Preview Images
+
+![Canvas Editor Home Page](images\Screenshot 2025-10-05 044150.png)
+*Home page with beautiful gradient background and feature showcase*
+
+![Canvas Editor Interface](images\Screenshot 2025-10-05 044142.png)
+*Main canvas editor with toolbar, drawing area, and property panel*
 
 ### `npm test`
 
