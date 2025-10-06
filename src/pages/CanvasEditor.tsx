@@ -5,6 +5,7 @@ import { useFabricCanvas } from '../hooks/useFabricCanvas';
 import { canvasService } from '../services/canvasService';
 import Toolbar from '../components/Toolbar';
 import PropertyPanel from '../components/PropertyPanel';
+import FirebaseDebugger from '../components/FirebaseDebugger';
 import { ArrowLeft, Loader2 } from 'lucide-react';
 import './CanvasEditor.css';
 
@@ -171,6 +172,7 @@ const CanvasEditor: React.FC = () => {
 
   return (
     <div className="canvas-editor">
+      <FirebaseDebugger />
       <div className="canvas-header">
         <button className="back-button" onClick={handleGoHome}>
           <ArrowLeft size={18} />

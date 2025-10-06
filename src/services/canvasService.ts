@@ -82,6 +82,8 @@ export const canvasService = {
   // Save canvas state
   async saveCanvas(id: string, canvasState: string, name?: string): Promise<void> {
     try {
+      console.log('Attempting to save canvas:', { id, name, canvasStateLength: canvasState.length });
+      
       const docRef = doc(db, COLLECTION_NAME, id);
       const updateData: any = {
         canvasState,
@@ -92,10 +94,33 @@ export const canvasService = {
         updateData.name = name;
       }
       
+      console.log('Update data prepared:', { ...updateData, canvasState: canvasState.substring(0, 100) + '...' });
+      
       await updateDoc(docRef, updateData);
+      console.log('Canvas saved successfully');
     } catch (error) {
-      console.error('Error saving canvas:', error);
-      throw error;
+      console.error('Detailed error saving canvas:', error);
+      
+      // Enhanced error handling
+      if (error instanceof Error) {
+        if (error.message.includes('permission-denied')) {
+          throw new Error(`Permission denied: Your Firestore security rules are blocking this write operation. Please check your Firebase Console security rules.`);
+        }
+        if (error.message.includes('not-found')) {
+          throw new Error(`Canvas not found: The canvas with ID "${id}" doesn't exist. It may have been deleted.`);
+        }
+        if (error.message.includes('unavailable')) {
+          throw new Error(`Firestore unavailable: The database is temporarily unavailable. Please try again.`);
+        }
+        if (error.message.includes('unauthenticated')) {
+          throw new Error(`Authentication required: Please check your Firebase authentication setup.`);
+        }
+        if (error.message.includes('quota-exceeded')) {
+          throw new Error(`Quota exceeded: Your Firebase project has exceeded its quota limits.`);
+        }
+      }
+      
+      throw new Error(`Failed to save canvas: ${error instanceof Error ? error.message : String(error)}`);
     }
   },
 
