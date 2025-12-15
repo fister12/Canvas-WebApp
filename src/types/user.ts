@@ -8,6 +8,7 @@ export interface UserProfile {
   preferences?: any;
 }
 
+// Data structures for authentication operationss
 export type SignUpData = { email: string; password: string; displayName?: string };
 export type SignInData = { email: string; password: string };
 export type UpdateProfileData = { displayName?: string; photoURL?: string; preferences?: any };
