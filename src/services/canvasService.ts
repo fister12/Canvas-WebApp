@@ -1,5 +1,5 @@
 import { db } from './firebase';
-import { collection, doc, addDoc, getDoc, updateDoc, connectFirestoreEmulator } from 'firebase/firestore';
+import { collection, doc, addDoc, getDoc, updateDoc } from 'firebase/firestore';
 import { CanvasData } from '../types/canvas';
 
 const COLLECTION_NAME = 'canvases';
@@ -12,7 +12,7 @@ const testConnection = async () => {
     
     // Try to create a collection reference
     const testCollection = collection(db, 'test');
-    console.log('Collection reference created successfully');
+    console.log('Collection reference created successfully', testCollection);
     
     return true;
   } catch (error) {
